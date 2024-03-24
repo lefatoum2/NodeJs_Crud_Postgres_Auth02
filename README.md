@@ -51,5 +51,33 @@ app.get('api/v1/issues/:id', (req, res) =>{
 ```
 
 ## PUT 
+```js
+app.put("/api/v1/issues/:id", (req,res) => {
+	const {id} = req.params;
+	const {label, status, priority} = req.body;
 
+
+	pool.query(
+		"UPDATE issues SET label = $1, status = $2, priority = $3 where id = $4", [label, status, priority, id],
+		(error, results) => {
+			if(error){
+				throw error
+			}
+			res.sendStatus(200);
+		}
+		);
+});
+```
 ## DELETE
+```js
+app.delete(api/v1/issues/:id, req, res) => {
+	const {id} = req.params;
+
+	pool.query("DELETE FROM issues WHERE id = $1", [id], (error, results) => {
+		if(error){
+			throw error;
+		}
+		res.sendStatus(200);
+	});
+});
+```
