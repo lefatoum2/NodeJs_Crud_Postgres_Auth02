@@ -81,3 +81,9 @@ app.delete(api/v1/issues/:id, req, res) => {
 	});
 });
 ```
+
+```js
+app.listen(8000, () => {
+  console.log(`Server is running.`);
+});
+```
